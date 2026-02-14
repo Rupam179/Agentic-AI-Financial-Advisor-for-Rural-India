@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ग्रामीण भारत वित्तीय सलाहकार | Rural India Financial Advisor</title>
+    <meta name="description" content="AI-powered financial advisor for rural India with government schemes and budget planning">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-rupee-sign"></i>
+                <span>ग्रामीण वित्त सलाहकार</span>
+            </div>
+            <button class="lang-toggle" id="langToggle">
+                <i class="fas fa-language"></i> English
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title" data-en="AI Financial Advisor for Rural India" data-hi="ग्रामीण भारत के लिए AI वित्तीय सलाहकार">ग्रामीण भारत के लिए AI वित्तीय सलाहकार</h1>
+            <p class="hero-subtitle" data-en="Get personalized financial advice and government scheme recommendations" data-hi="व्यक्तिगत वित्तीय सलाह और सरकारी योजनाओं की जानकारी पाएं">व्यक्तिगत वित्तीय सलाह और सरकारी योजनाओं की जानकारी पाएं</p>
+        </div>
+    </section>
+
+    <!-- Main Form -->
+    <section class="form-section">
+        <div class="container">
+            <form class="finance-form" id="financeForm">
+                <h2 data-en="Your Financial Details" data-hi="आपकी वित्तीय जानकारी">आपकी वित्तीय जानकारी</h2>
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label data-en="Monthly Income (₹)" data-hi="मासिक आय (₹)">मासिक आय (₹)</label>
+                        <input type="number" id="monthlyIncome" min="0" value="15000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Monthly Expenses (₹)" data-hi="मासिक खर्च (₹)">मासिक खर्च (₹)</label>
+                        <input type="number" id="monthlyExpenses" min="0" value="10000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Current Savings (₹)" data-hi="वर्तमान बचत (₹)">वर्तमान बचत (₹)</label>
+                        <input type="number" id="savings" min="0" value="5000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Total Debt (₹)" data-hi="कुल कर्ज (₹)">कुल कर्ज (₹)</label>
+                        <input type="number" id="debt" min="0" value="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Family Size" data-hi="परिवार का आकार">परिवार का आकार</label>
+                        <input type="number" id="familySize" min="1" value="4" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Your Age" data-hi="आपकी उम्र">आपकी उम्र</label>
+                        <input type="number" id="age" min="18" max="100" value="35" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Occupation" data-hi="व्यवसाय">व्यवसाय</label>
+                        <select id="occupation" required>
+                            <option value="farmer" data-en="Farmer" data-hi="किसान">किसान</option>
+                            <option value="laborer" data-en="Laborer" data-hi="मजदूर">मजदूर</option>
+                            <option value="business" data-en="Business" data-hi="व्यवसाय">व्यवसाय</option>
+                            <option value="self_employed" data-en="Self Employed" data-hi="स्व-रोजगार">स्व-रोजगार</option>
+                            <option value="salaried" data-en="Salaried" data-hi="नौकरी">नौकरी</option>
+                            <option value="other" data-en="Other" data-hi="अन्य">अन्य</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-en="Bank Account" data-hi="बैंक खाता">बैंक खाता</label>
+                        <select id="hasBankAccount" required>
+                            <option value="true" data-en="Yes" data-hi="हाँ">हाँ</option>
+                            <option value="false" data-en="No" data-hi="नहीं">नहीं</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-chart-line"></i>
+                    <span data-en="Get Financial Advice" data-hi="वित्तीय सलाह पाएं">वित्तीय सलाह पाएं</span>
+                </button>
+            </form>
+
+            <!-- Results -->
+            <div class="results" id="results" style="display: none;">
+                <!-- Health Score -->
+                <div class="score-card">
+                    <h3 data-en="Financial Health Score" data-hi="वित्तीय स्वास्थ्य स्कोर">वित्तीय स्वास्थ्य स्कोर</h3>
+                    <div class="score-circle">
+                        <span class="score-value" id="healthScore">0</span>
+                        <span class="score-label">/100</span>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span data-en="Monthly Surplus" data-hi="मासिक बचत">मासिक बचत</span>
+                            <strong id="monthlySurplus">₹0</strong>
+                        </div>
+                        <div class="metric">
+                            <span data-en="Savings Rate" data-hi="बचत दर">बचत दर</span>
+                            <strong id="savingsRate">0%</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="recommendations-card">
+                    <h3><i class="fas fa-lightbulb"></i> <span data-en="Recommendations" data-hi="सिफारिशें">सिफारिशें</span></h3>
+                    <div id="recommendationsList"></div>
+                </div>
+
+                <!-- Government Schemes -->
+                <div class="schemes-card">
+                    <h3><i class="fas fa-landmark"></i> <span data-en="Government Schemes for You" data-hi="आपके लिए सरकारी योजनाएं">आपके लिए सरकारी योजनाएं</span></h3>
+                    <div id="schemesList"></div>
+                </div>
+
+                <!-- Budget Plan -->
+                <div class="budget-card">
+                    <h3><i class="fas fa-wallet"></i> <span data-en="Suggested Budget Plan" data-hi="सुझाया गया बजट">सुझाया गया बजट</span></h3>
+                    <div id="budgetPlan"></div>
+                </div>
+
+                <!-- Savings Goals -->
+                <div class="goals-card">
+                    <h3><i class="fas fa-bullseye"></i> <span data-en="Savings Goals" data-hi="बचत लक्ष्य">बचत लक्ष्य</span></h3>
+                    <div id="goalsList"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section class="chat-section">
+        <div class="container">
+            <div class="chat-box">
+                <h3><i class="fas fa-comments"></i> <span data-en="Ask Financial Questions" data-hi="वित्तीय सवाल पूछें">वित्तीय सवाल पूछें</span></h3>
+                <div class="chat-messages" id="chatMessages"></div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="अपना सवाल पूछें..." data-en-placeholder="Ask your question..." data-hi-placeholder="अपना सवाल पूछें...">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Rural India Financial Advisor. Made with ❤️ for Bharat</p>
+        </div>
+    </footer>
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
