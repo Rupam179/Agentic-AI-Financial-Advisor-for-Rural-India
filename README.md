@@ -1,5 +1,7 @@
 # 💰 AI Financial Advisor for Rural India
 
+> **Author:** Rupam Mukherjee
+
 > An AI‑powered financial literacy and planning platform designed specifically for rural India — providing bilingual guidance, government scheme discovery, and simple budget planning without requiring digital literacy.
 
 ---
